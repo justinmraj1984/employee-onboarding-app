@@ -21,7 +21,7 @@
   <properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceencoding>utf-8</project.build.sourceencoding>
-    <project.reporting.outputencoding>utf-8</project.reporting.outputencoding>
+        <project.reporting.outputencoding>utf-8</project.reporting.outputencoding>
   </properties>
 	
   <dependencies>
