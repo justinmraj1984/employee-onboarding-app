@@ -1,12 +1,11 @@
 # Employee Onboarding Application
 
-1. [Pre-Requisites]()
-2. [GitHub Repository Setup]()
-3. [Eclipse Workspace Setup]()
-4. [Execute the SpringBoot Application]()
+1. [Pre-Requisites](https://github.com/justinmraj1984/employee-onboarding-app#1-pre-requisites)
+2. [GitHub Repository Setup](https://github.com/justinmraj1984/employee-onboarding-app#2-github-repository-setup)
+3. [Eclipse Workspace Setup](https://github.com/justinmraj1984/employee-onboarding-app#3-eclipse-workspace-setup)
+4. [Execute the SpringBoot Application](https://github.com/justinmraj1984/employee-onboarding-app#4-execute-the-springboot-application)
 
-## 1. Pre-Requisites:
----
+## 1. Pre-Requisites
 1. Create a GitHub account
 2. Verify access to the Employee application repository - `https://github.com/justinmraj1984/employee-onboarding-app`
 3. Install GitHub Desktop
@@ -14,8 +13,7 @@
 5. Install Maven and complete the necessary configuration
 6. Install Eclipse and verify the Java, Maven and GitHub settings inside eclipse
 
-## 2. GitHub Repository Setup:
----
+## 2. GitHub Repository Setup
 ### _1. Configure GitHub Desktop to use the GitHub account_
   - Open GitHub Desktop
   - Navigate to ***File -> Options -> Accounts***
@@ -45,8 +43,7 @@
 - Change this file and push the changes again to the repository
 - Login to your GitHub account in browser and explore the new branch and the commits inside it
 
-## 3. Eclipse Workspace Setup:
----
+## 3. Eclipse Workspace Setup
 1. Ensure the repository is successfully cloned *(as per Step 2.4)*
 2. In GitHub Desktop, execute a `Pull` in order to sync the latest code from GitHub repository
 3. In Eclipse, select ***File -> Import -> General -> Projects from File System or Archive***
@@ -62,8 +59,7 @@
 > **Note:** 
 > *This folder is used to store the H2 database file for the application.*
  
-## 4. Execute the SpringBoot Application:
----
+## 4. Execute the SpringBoot Application
 1. Open this path - `c:\mywork\github_repo\employee-onboarding-app` in command line
 2. Execute the maven command from command line to run the spring boot application
 
