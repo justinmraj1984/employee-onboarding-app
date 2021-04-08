@@ -1,9 +1,9 @@
 # Employee Onboarding Application
 
-1. [Pre-Requisites](https://github.com/justinmraj1984/employee-onboarding-app#1-pre-requisites)
-2. [GitHub Repository Setup](https://github.com/justinmraj1984/employee-onboarding-app#2-github-repository-setup)
-3. [Eclipse Workspace Setup](https://github.com/justinmraj1984/employee-onboarding-app#3-eclipse-workspace-setup)
-4. [Execute the SpringBoot Application](https://github.com/justinmraj1984/employee-onboarding-app#4-execute-the-springboot-application)
+1. [Pre-Requisites](#1-pre-requisites)
+2. [GitHub Repository Setup](#2-github-repository-setup)
+3. [Eclipse Workspace Setup](#3-eclipse-workspace-setup)
+4. [Execute the SpringBoot Application](#4-execute-the-springboot-application)
 
 ## 1. Pre-Requisites
 1. Create a GitHub account
