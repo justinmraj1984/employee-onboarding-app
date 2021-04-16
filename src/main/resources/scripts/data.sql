@@ -73,7 +73,7 @@ CREATE TABLE leave_requests
 , last_update_by INT
 );
 
-
+/*
 -- Insert Scripts
 INSERT INTO employees 
 ( first_name, last_name, date_of_birth, date_of_join, designation, created_date, last_update_date )
@@ -95,3 +95,4 @@ VALUES
   ( 'Data Science Project', 2, to_date('01-JAN-2020','DD-MON-YYYY'), to_date('31-DEC-2022','DD-MON-YYYY'), 'IN_PROGRESS' )
 , ( 'Banking Project', 2, to_date('01-JAN-2021','DD-MON-YYYY'), to_date('31-DEC-2025','DD-MON-YYYY'), 'IN_PROGRESS' );
 
+*/
