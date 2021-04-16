@@ -1,14 +1,3 @@
-# Todo list:
-- Project Lombok setup with screenshot
-- REST API details
-- Execute Swagger
-- Execute Postman or CURL
-- Verify Logger
-- Remove data.sql file
-- Add negative scenarios in service methods
-- Add JUnit test cases for Department module
-- Enable Jacoco for code coverage report
-
 # Employee Onboarding Application
 
 1. [Pre-Requisites](#1-pre-requisites)
