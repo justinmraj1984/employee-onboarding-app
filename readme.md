@@ -1,3 +1,14 @@
+# Todo list:
+- Project Lombok setup with screenshot
+- REST API details
+- Execute Swagger
+- Execute Postman or CURL
+- Verify Logger
+- Remove data.sql file
+- Add negative scenarios in service methods
+- Add JUnit test cases for Department module
+- Enable Jacoco for code coverage report
+
 # Employee Onboarding Application
 
 1. [Pre-Requisites](#1-pre-requisites)
@@ -9,7 +20,7 @@
 1. Create a GitHub account
 2. Verify access to the Employee application repository - `https://github.com/justinmraj1984/employee-onboarding-app`
 3. Install GitHub Desktop
-4. Install Java 8 and setup the JAVA_HOME environment variable in system parameters
+4. Install Java 11 and setup the JAVA_HOME environment variable in system parameters
 5. Install Maven and complete the necessary configuration
 6. Install Eclipse and verify the Java, Maven and GitHub settings inside eclipse
 
@@ -63,7 +74,7 @@
 1. Open this path - `c:\mywork\github_repo\employee-onboarding-app` in command line
 2. Execute the maven command from command line to run the spring boot application
 
-    `mvn spring-boot:run`
+    `mvn clean spring-boot:run`
 > **Note:** 
 > *After executing the above command, do not click or press any key in the command line till the application starts. If the application did not start for long time, then press Enter key to resume application starting.*
 3. After the application has started successfully, open the below links in browser,
