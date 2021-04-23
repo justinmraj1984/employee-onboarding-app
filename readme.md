@@ -111,5 +111,5 @@
 3. Explore the APIs and check if the data in the table are getting updated accordingly.
 
 > **Note:** 
-> *The OpenAPI format for the REST API details are available in this URL - http://localhost:8080/empapp-api-docs*
+> *The OpenAPI format for the REST API details are available in this URL - `http://localhost:8080/empapp-api-docs`*
 
