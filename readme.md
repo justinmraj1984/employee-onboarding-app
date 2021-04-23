@@ -3,7 +3,10 @@
 1. [Pre-Requisites](#1-pre-requisites)
 2. [GitHub Repository Setup](#2-github-repository-setup)
 3. [Eclipse Workspace Setup](#3-eclipse-workspace-setup)
-4. [Execute the SpringBoot Application](#4-execute-the-springboot-application)
+4. [Starting the SpringBoot Application](#4-starting-the-springboot-application)
+5. [Explore H2 Database console](#5-explore-h2-database-console)
+6. [Explore REST APIs using Swagger UI](#6-explore-rest-apis-using-swagger-ui)
+
 
 ## 1. Pre-Requisites
 1. Create a GitHub account
@@ -58,24 +61,24 @@
 
 > **Note:** 
 > *This folder is used to store the H2 database file for the application.*
- 
-## 4. Execute the SpringBoot Application
+
+## 4. Starting the SpringBoot Application
 1. Open this path - `c:\mywork\github_repo\employee-onboarding-app` in command line
 2. Execute the maven command from command line to run the spring boot application
 
     `mvn clean spring-boot:run`
 > **Note:** 
 > *After executing the above command, do not click or press any key in the command line till the application starts. If the application did not start for long time, then press Enter key to resume application starting.*
-3. After the application has started successfully, open the below links in browser,
-    - Welcome Page - `http://localhost:8080/welcome`
-    - H2 Database Console - `http://localhost:8080/h2`
-4. In the H2 Database Console, enter the following values as available in the `application.properties` file
-    - Driver Class: `org.h2.Driver`
-    - JDBC URL: `jdbc:h2:file:c:/mywork/h2-db-files/emp-app/empdb`
-    - User Name: `gwcusr`
-    - Password: `gwcpwd`
-5. Click Connect to connect to the H2 database and open the console
-6. Once the H2 database is connected successfully, Explore the list of Tables and data in it.
+> *If the application does not start and has error related to log statement then execute Step 7 below.*
+3. :new: Project Lombok setup in Eclipse IDE:
+    - Once the application has started successfully, terminate it and close Eclipse IDE.
+    - Goto the path - `C:\Users\<user-name>\.m2\repository\org\projectlombok\lombok\<version>`
+    - Right click the file - `lombok-<version>.jar` and select ***Open***. This opens the Project Lombok installer window.
+    - Click on ***Specify location...*** and select the folder where Eclipse software is installed.
+    - Click on ***Install / Update*** and complete the installation. 
+    - Start Eclipse IDE, and goto ***Help -> About Eclipse IDE*** 
+    - Maximize this window and check if Project Lombok is successfully installed into Eclipse.
+    - After verifying the Lombok installation in Eclipse, execute the application and check if it is working fine.
 
 ### _Activities:_
 1. Initialize project development using Spring Initializr
@@ -87,3 +90,26 @@
     - Create new Tables as per the Data model designed for the application
     - Insert the sample data from excel sheet into the table
     - `Push` the new codes to GitHub once the above 2 activities are completed
+
+## 5. Explore H2 Database console
+1. After the application has started successfully, open the below links in browser,
+    - Welcome Page - `http://localhost:8080/welcome`
+    - H2 Database Console - `http://localhost:8080/h2`
+2. In the H2 Database Console, enter the following values as available in the `application.properties` file
+    - Driver Class: `org.h2.Driver`
+    - JDBC URL: `jdbc:h2:file:c:/mywork/h2-db-files/emp-app/empdb`
+    - User Name: `gwcusr`
+    - Password: `gwcpwd`
+3. Click Connect to connect to the H2 database and open the console
+4. Once the H2 database is connected successfully, Explore the list of Tables and data in it.
+
+:new:
+## 6. Explore REST APIs using Swagger UI
+1. After the application has started successfully, open the below links in browser,
+    - Swagger UI page - `http://localhost:8080/swagger-ui.html`
+2. Inside the Swagger page, enter `/empapp-api-docs` and click ***Explore*** to view the REST API documentation
+3. Explore the APIs and check if the data in the table are getting updated accordingly.
+
+> **Note:** 
+> *The OpenAPI format for the REST API details are available in this URL - http://localhost:8080/empapp-api-docs*
+
