@@ -18,16 +18,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name="departments")
-public class Department 
+@Table(name="employees")
+public class Employee 
 {
 	@Id
-	@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="deptSeq")
-	@SequenceGenerator(name="deptSeq",sequenceName="dept_seq", allocationSize = 1)
-	private int department_id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="empSeq")
+	@SequenceGenerator(name="empSeq",sequenceName="emp_seq", allocationSize = 1)
+	private int employee_id;
 
-	private String department_name;
+	private String first_name;
+	private String last_name;
+	private Date join_date;
+	private String designation;
 	private int manager_id;
+	private int department_id;
+	private int project_id;
+	private int leave_balance; // 2 days per month
+
 	private boolean active_flag;
 	private Date created_date;
 	private int created_by;

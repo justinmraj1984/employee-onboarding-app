@@ -12,19 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gwc.emp.model.Department;
+import com.gwc.emp.model.request.AssignEmployeeRequest;
 import com.gwc.emp.service.impl.DepartmentServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "DepartmentController")
 @RestController
-@RequestMapping("/api/department")
+@RequestMapping("/v1/api/department")
 public class DepartmentController 
 {
 	@Autowired
 	DepartmentServiceImpl departmentService;
 	
-	@GetMapping(value="/")
+	@GetMapping(value="/all")
 	public List <Department> getAllDepartments()
 	{
 		log.info("Received request to getAllDepartments");
@@ -32,7 +33,7 @@ public class DepartmentController
 		return departmentService.getAllDepartments();
 	}
 	
-	@GetMapping(value="/{departmentId}")
+	@GetMapping(value="/id/{departmentId}")
 	public Department getDepartmentById(@PathVariable("departmentId") int departmentId)
 	{
 		log.info("Received request to getDepartmentById");
@@ -48,6 +49,7 @@ public class DepartmentController
 		departmentService.createOrUpdate(department);
 		
 		log.info("Execution Status - Department created or updated successfully");
+		log.info("Department Record created : "+department.toString());
 
 		return department;
 	}
@@ -61,5 +63,14 @@ public class DepartmentController
 		
 		log.info("Execution Status - Department deleted successfully");
 	}
-	
+
+	@PostMapping(value="/assign/{departmentId}")
+	public void assign( @PathVariable("departmentId") int departmentId
+			          , @RequestBody AssignEmployeeRequest empList)
+	{
+		log.info("Received request to Assign employees to Department");
+
+		departmentService.assign(departmentId, empList);
+	}
+
 }

@@ -18,16 +18,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name="departments")
-public class Department 
+@Table(name="leave_requests")
+public class LeaveRequest 
 {
 	@Id
-	@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="deptSeq")
-	@SequenceGenerator(name="deptSeq",sequenceName="dept_seq", allocationSize = 1)
-	private int department_id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="requestSeq")
+	@SequenceGenerator(name="requestSeq",sequenceName="leave_req_seq", allocationSize = 1)
+	private int request_id;
 
-	private String department_name;
-	private int manager_id;
+	private int submitter_id;
+	private int approver_id;
+	private Date leave_start_date;
+	private Date leave_end_date;
+	private int total_days;
+	private String status;  // PENDING, APPROVED, REJECTED, CANCELLED
+
 	private boolean active_flag;
 	private Date created_date;
 	private int created_by;

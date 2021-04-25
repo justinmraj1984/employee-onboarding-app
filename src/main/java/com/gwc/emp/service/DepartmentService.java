@@ -3,6 +3,8 @@ package com.gwc.emp.service;
 import java.util.List;
 
 import com.gwc.emp.model.Department;
+import com.gwc.emp.model.Employee;
+import com.gwc.emp.model.request.AssignEmployeeRequest;
 
 public interface DepartmentService 
 {
@@ -17,4 +19,8 @@ public interface DepartmentService
 
 	// Search Department
 	Department findById (int departmentId);
+	
+	// Assign Employees to Department
+	void assign (int departmentId, AssignEmployeeRequest empList);
+
 }

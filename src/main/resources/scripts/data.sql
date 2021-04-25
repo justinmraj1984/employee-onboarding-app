@@ -1,3 +1,13 @@
+-- Sequences for ID columns
+CREATE SEQUENCE IF NOT EXISTS dept_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE IF NOT EXISTS emp_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE IF NOT EXISTS prj_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE IF NOT EXISTS prj_assign_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE IF NOT EXISTS leave_req_seq START WITH 1 INCREMENT BY 1;
+
+
+
+/*
 DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS departments;
 DROP TABLE IF EXISTS projects;
@@ -73,7 +83,6 @@ CREATE TABLE leave_requests
 , last_update_by INT
 );
 
-/*
 -- Insert Scripts
 INSERT INTO employees 
 ( first_name, last_name, date_of_birth, date_of_join, designation, created_date, last_update_date )

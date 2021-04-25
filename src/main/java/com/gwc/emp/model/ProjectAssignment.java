@@ -18,16 +18,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name="departments")
-public class Department 
+@Table(name="project_assignments")
+public class ProjectAssignment 
 {
 	@Id
-	@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="deptSeq")
-	@SequenceGenerator(name="deptSeq",sequenceName="dept_seq", allocationSize = 1)
-	private int department_id;
+	@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="prjAssignSeq")
+	@SequenceGenerator(name="prjAssignSeq",sequenceName="prj_assign_seq", allocationSize = 1)
+	private int assignment_id;
 
-	private String department_name;
-	private int manager_id;
+	private int project_id;
+	private int employee_id;
+	private int department_id;
+	private Date emp_join_date;
+	private Date emp_last_date;
+
 	private boolean active_flag;
 	private Date created_date;
 	private int created_by;
