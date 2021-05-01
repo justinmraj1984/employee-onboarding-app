@@ -13,6 +13,14 @@
 2. Verify access to the Employee application repository - `https://github.com/justinmraj1984/employee-onboarding-app`
 3. Install GitHub Desktop
 4. Install Java 11 and setup the JAVA_HOME environment variable in system parameters
+    - Download JDK 11 from `https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip`
+    - On extracting this zip file `jdk-11` folder is available with the JDK installation.
+    - In the windows system parameters, set `JAVA_HOME=<jdk-11 folder path>`
+    - In path parameter, add `%JAVA_HOME%/bin`
+    - In path parameter, remove any references to other JDK installation
+    - Save and exit the system variables windows
+    - Open a new command prompt and execute the command `java -version`
+
 5. Install Maven and complete the necessary configuration
 6. Install Eclipse and verify the Java, Maven and GitHub settings inside eclipse
 
