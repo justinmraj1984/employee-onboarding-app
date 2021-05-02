@@ -44,7 +44,26 @@ public class ProjectAssignmentServiceImpl implements ProjectAssignmentService
 	{
 		log.info("Fetching Assignments for Project ID - {}", projectId);
 
-		return null;
-//		return projectAssignmentRepository.findById(assignmentId).get();
+		List<ProjectAssignment> projectAssignmentList = new ArrayList<ProjectAssignment>();
+		projectAssignmentRepository.findAll()
+		                 .forEach(projectAssignment -> {
+		                	 if (projectAssignment.getProject_id() == projectId)
+		                		 projectAssignmentList.add(projectAssignment);
+		                 });
+		return projectAssignmentList;
+	}
+	
+	@Override
+	public List <ProjectAssignment> findAssignmentsForEmployee (int employeeId)
+	{
+		log.info("Fetching Assignments for Employee ID - {}", employeeId);
+
+		List<ProjectAssignment> projectAssignmentList = new ArrayList<ProjectAssignment>();
+		projectAssignmentRepository.findAll()
+		                 .forEach(projectAssignment -> {
+		                	 if (projectAssignment.getEmployee_id() == employeeId)
+		                		 projectAssignmentList.add(projectAssignment);
+		                 });
+		return projectAssignmentList;
 	}
 }

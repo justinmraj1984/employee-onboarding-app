@@ -3,7 +3,6 @@ package com.gwc.emp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gwc.emp.model.Employee;
+import com.gwc.emp.model.request.DeleteRequest;
+import com.gwc.emp.model.response.DeleteResponse;
 import com.gwc.emp.service.impl.EmployeeServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "EmployeeController")
 @RestController
-@RequestMapping("/v1/api/employee")
+@RequestMapping("/api/v1/employee")
 public class EmployeeController 
 {
 	@Autowired
@@ -53,13 +54,23 @@ public class EmployeeController
 		return employee;
 	}
 	
-	@DeleteMapping(value="/delete/{employeeId}")
-	public void delete(@PathVariable("employeeId") int employeeId)
+//	@DeleteMapping(value="/delete/{employeeId}")
+//	public void delete(@PathVariable("employeeId") int employeeId)
+//	{
+//		log.info("Received request to Delete Employee");
+//
+//		employeeService.delete(employeeId);
+//		
+//		log.info("Execution Status - Employee deleted successfully");
+//	}
+	
+	@PostMapping(value="/delete")
+	public DeleteResponse delete(@RequestBody DeleteRequest request)
 	{
 		log.info("Received request to Delete Employee");
 
-		employeeService.delete(employeeId);
+		return employeeService.delete(request);
 		
-		log.info("Execution Status - Employee deleted successfully");
-	}
+//		log.info("Execution Status - Employee deleted successfully");
+	}	
 }

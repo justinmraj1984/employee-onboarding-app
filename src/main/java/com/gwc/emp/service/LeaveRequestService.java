@@ -20,4 +20,10 @@ public interface LeaveRequestService
 
 	// Search LeaveRequest by Employee ID
 	List <LeaveRequest> findByEmployeeId (int employeeId);
+
+	// Search LeaveRequests in an Approver's queue
+	List <LeaveRequest> findByApproverId (int approverId);
+
+	// Approve or Reject Action on a Request
+	String action (int requestId, int approverId, String status);
 }

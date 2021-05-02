@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 import com.gwc.emp.model.Department;
 import com.gwc.emp.model.Employee;
 import com.gwc.emp.model.request.AssignEmployeeRequest;
+import com.gwc.emp.model.request.DeleteRequest;
+import com.gwc.emp.model.response.DeleteResponse;
 import com.gwc.emp.repository.DepartmentRepository;
-import com.gwc.emp.repository.EmployeeRepository;
 import com.gwc.emp.service.DepartmentService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -34,11 +35,44 @@ public class DepartmentServiceImpl implements DepartmentService
 	}
 	
 	@Override
-	public void delete(int departmentId)
+	public DeleteResponse delete(DeleteRequest request)
 	{
-		log.info("Executing - Delete Department");
+		// find the department record
+		String entityName = request.getEntityName();
+		DeleteResponse response = new DeleteResponse();
+		
+		if ("Department".equals(entityName))
+		{
+			log.info("Executing - Delete Department");
 
-		departmentRepository.deleteById(departmentId);
+			// find the department record
+			int departmentId = request.getEntityId();
+			boolean activeFlag = request.isActiveFlag();
+			int deletedBy = request.getSubmittedBy();
+			Date currentDate = new Date(System.currentTimeMillis());
+
+			Department department = departmentRepository.findById(departmentId).get();
+
+			// set values to soft delete the department record
+			department.setActive_flag(activeFlag);
+			department.setLastUpdated_by(deletedBy);
+			department.setLastUpdated_date(currentDate);
+			
+			// update the department record in database
+			departmentRepository.save(department);			
+			
+			// construct response object
+			response.setStatus("SUCCESS");
+			response.setMessage(entityName+"# "+departmentId+" is "+(activeFlag?"Active":"InActive"));
+		}
+		else
+		{
+			log.error("Invalid Entity");
+			response.setStatus("ERROR");
+			response.setMessage("Invalid Entity");
+		}
+		
+		return response;
 	}
 	
 	@Override
@@ -48,7 +82,10 @@ public class DepartmentServiceImpl implements DepartmentService
 
 		List<Department> departmentList = new ArrayList<Department>();
 		departmentRepository.findAll()
-		                    .forEach(department -> departmentList.add(department));
+		                    .forEach(department -> {
+		                    	if (department.isActive_flag())
+		                    		departmentList.add(department);
+		                    });
 		return departmentList;
 	}
 	

@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.gwc.emp.model.Project;
 import com.gwc.emp.model.request.AssignEmployeeRequest;
+import com.gwc.emp.model.request.DeleteRequest;
+import com.gwc.emp.model.response.DeleteResponse;
 
 public interface ProjectService 
 {
@@ -11,7 +13,7 @@ public interface ProjectService
 	Project createOrUpdate(Project project);
 
 	// Delete Project
-	void delete (int projectId);
+	DeleteResponse delete (DeleteRequest request);
 
 	// Fetch all Projects
 	List <Project> getAllProjects();

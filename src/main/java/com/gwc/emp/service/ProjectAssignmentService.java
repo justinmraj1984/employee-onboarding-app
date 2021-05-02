@@ -13,6 +13,9 @@ public interface ProjectAssignmentService
 	// Fetch all ProjectAssignments
 	List <ProjectAssignment> getAllAssignments();
 
-	// Search ProjectAssignment
+	// Search ProjectAssignments by Project Id
 	List <ProjectAssignment> findAssignmentsByProject (int projectId);
+
+	// Search ProjectAssignments by Employee Id
+	List <ProjectAssignment> findAssignmentsForEmployee (int employeeId);
 }

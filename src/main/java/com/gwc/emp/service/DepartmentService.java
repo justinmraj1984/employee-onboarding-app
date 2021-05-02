@@ -5,6 +5,8 @@ import java.util.List;
 import com.gwc.emp.model.Department;
 import com.gwc.emp.model.Employee;
 import com.gwc.emp.model.request.AssignEmployeeRequest;
+import com.gwc.emp.model.request.DeleteRequest;
+import com.gwc.emp.model.response.DeleteResponse;
 
 public interface DepartmentService 
 {
@@ -12,7 +14,7 @@ public interface DepartmentService
 	Department createOrUpdate(Department department);
 
 	// Delete Department
-	void delete (int departmentId);
+	DeleteResponse delete (DeleteRequest request);
 
 	// Fetch all Departments
 	List <Department> getAllDepartments();

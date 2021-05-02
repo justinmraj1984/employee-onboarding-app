@@ -3,7 +3,6 @@ package com.gwc.emp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,13 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gwc.emp.model.Department;
 import com.gwc.emp.model.request.AssignEmployeeRequest;
+import com.gwc.emp.model.request.DeleteRequest;
+import com.gwc.emp.model.response.DeleteResponse;
 import com.gwc.emp.service.impl.DepartmentServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "DepartmentController")
 @RestController
-@RequestMapping("/v1/api/department")
+@RequestMapping("/api/v1/department")
 public class DepartmentController 
 {
 	@Autowired
@@ -41,7 +42,7 @@ public class DepartmentController
 		return departmentService.findById(departmentId);
 	}
 	
-	@PostMapping(value="/save")
+	@PostMapping(value="/save", consumes = "application/json", produces = "application/json")
 	public Department createOrUpdate(@RequestBody Department department)
 	{
 		log.info("Received request to Create or Update Department");
@@ -54,14 +55,12 @@ public class DepartmentController
 		return department;
 	}
 	
-	@DeleteMapping(value="/delete/{departmentId}")
-	public void delete(@PathVariable("departmentId") int departmentId)
+	@PostMapping(value="/delete")
+	public DeleteResponse delete(@RequestBody DeleteRequest request)
 	{
 		log.info("Received request to Delete Department");
 
-		departmentService.delete(departmentId);
-		
-		log.info("Execution Status - Department deleted successfully");
+		return departmentService.delete(request);
 	}
 
 	@PostMapping(value="/assign/{departmentId}")

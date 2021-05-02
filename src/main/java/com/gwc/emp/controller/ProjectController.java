@@ -3,7 +3,6 @@ package com.gwc.emp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,13 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gwc.emp.model.Project;
 import com.gwc.emp.model.request.AssignEmployeeRequest;
+import com.gwc.emp.model.request.DeleteRequest;
+import com.gwc.emp.model.response.DeleteResponse;
 import com.gwc.emp.service.impl.ProjectServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "ProjectController")
 @RestController
-@RequestMapping("/v1/api/project")
+@RequestMapping("/api/v1/project")
 public class ProjectController 
 {
 	@Autowired
@@ -54,14 +55,12 @@ public class ProjectController
 		return project;
 	}
 	
-	@DeleteMapping(value="/delete/{projectId}")
-	public void delete(@PathVariable("projectId") int projectId)
+	@PostMapping(value="/complete")
+	public DeleteResponse complete(@RequestBody DeleteRequest request)
 	{
 		log.info("Received request to Delete Project");
 
-		projectService.delete(projectId);
-		
-		log.info("Execution Status - Project deleted successfully");
+		return projectService.delete(request);
 	}
 	
 	@PostMapping(value="/assign/{projectId}")

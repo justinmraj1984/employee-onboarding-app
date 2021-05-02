@@ -3,7 +3,6 @@ package com.gwc.emp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gwc.emp.model.LeaveRequest;
+import com.gwc.emp.model.request.LeaveApprovalRequest;
 import com.gwc.emp.service.impl.LeaveRequestServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "LeaveRequestController")
 @RestController
-@RequestMapping("/v1/api/request")
+@RequestMapping("/api/v1/request")
 public class LeaveRequestController 
 {
 	@Autowired
@@ -32,7 +32,7 @@ public class LeaveRequestController
 		return leaveRequestService.getAllRequests();
 	}
 	
-	@GetMapping(value="/{requestId}")
+	@GetMapping(value="/id/{requestId}")
 	public LeaveRequest getRequestById(@PathVariable("requestId") int requestId)
 	{
 		log.info("Received request to getRequestById");
@@ -40,12 +40,20 @@ public class LeaveRequestController
 		return leaveRequestService.findById(requestId);
 	}
 	
-	@GetMapping(value="/emp/{employeeId}")
+	@GetMapping(value="/employee/{employeeId}")
 	public List <LeaveRequest> getRequestByEmpId(@PathVariable("employeeId") int employeeId)
 	{
 		log.info("Received request to getRequestByEmpId");
 
 		return leaveRequestService.findByEmployeeId(employeeId);
+	}
+	
+	@GetMapping(value="/approver/{approverId}")
+	public List <LeaveRequest> getRequestByApproverId(@PathVariable("approverId") int approverId)
+	{
+		log.info("Received request to getRequestByApproverId");
+
+		return leaveRequestService.findByApproverId(approverId);
 	}
 	
 	@PostMapping(value="/save")
@@ -61,13 +69,19 @@ public class LeaveRequestController
 		return request;
 	}
 	
-	@DeleteMapping(value="/delete/{requestId}")
-	public void delete(@PathVariable("requestId") int requestId)
+	@PostMapping(value="/action")
+	public String action(@RequestBody LeaveApprovalRequest request)
 	{
-		log.info("Received request to Delete LeaveRequest");
+		log.info("Received request to Approve or Reject LeaveRequest");
 
-		leaveRequestService.delete(requestId);
+		int requestId = request.getRequestId(); 
+		int approverId = request.getApproverId();
+		String approvalStatus = request.getApprovalStatus();
 		
-		log.info("Execution Status - LeaveRequest deleted successfully");
+		String actionStatus = leaveRequestService.action(requestId, approverId, approvalStatus);
+
+		log.info("LeaveRequest - {} is {} by Approver {}", requestId, actionStatus, approverId);
+
+		return actionStatus;
 	}
 }

@@ -11,8 +11,8 @@ import com.gwc.emp.model.Employee;
 import com.gwc.emp.model.Project;
 import com.gwc.emp.model.ProjectAssignment;
 import com.gwc.emp.model.request.AssignEmployeeRequest;
-import com.gwc.emp.repository.EmployeeRepository;
-import com.gwc.emp.repository.ProjectAssignmentRepository;
+import com.gwc.emp.model.request.DeleteRequest;
+import com.gwc.emp.model.response.DeleteResponse;
 import com.gwc.emp.repository.ProjectRepository;
 import com.gwc.emp.service.ProjectService;
 
@@ -38,12 +38,47 @@ public class ProjectServiceImpl implements ProjectService
 	}
 	
 	@Override
-	public void delete(int projectId)
+	public DeleteResponse delete(DeleteRequest request)
 	{
-		log.info("Executing - Delete Project");
+		// find the project record
+		String entityName = request.getEntityName();
+		DeleteResponse response = new DeleteResponse();
 
-		projectRepository.deleteById(projectId);
+		if ("Project".equals(entityName))
+		{
+			log.info("Executing - Delete Project");
+
+			// find the project record
+			int projectId = request.getEntityId();
+			boolean activeFlag = request.isActiveFlag();
+			int completedBy = request.getSubmittedBy();
+			Date currentDate = new Date(System.currentTimeMillis());
+
+			Project project = projectRepository.findById(projectId).get();
+
+			// set values to soft delete the department record
+			project.setActive_flag(activeFlag);
+			project.setEnd_date(currentDate);
+			project.setLastUpdated_by(completedBy);
+			project.setLastUpdated_date(currentDate);
+
+			// update the department record in database
+			projectRepository.save(project);
+			
+			// construct response object
+			response.setStatus("SUCCESS");
+			response.setMessage(entityName+"# "+projectId+" is "+(activeFlag?"Open":"Completed"));
+		}
+		else
+		{
+			log.error("Invalid Entity");
+			response.setStatus("ERROR");
+			response.setMessage("Invalid Entity");
+		}
+		
+		return response;
 	}
+
 	
 	@Override
 	public List<Project> getAllProjects()
