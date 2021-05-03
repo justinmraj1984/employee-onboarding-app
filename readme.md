@@ -10,10 +10,10 @@
 
 ## 1. Pre-Requisites
 1. Create a GitHub account
-2. Verify access to the Employee application repository - `[https://github.com/justinmraj1984/employee-onboarding-app](https://github.com/justinmraj1984/employee-onboarding-app)`
+2. Verify access to the Employee application repository - `https://github.com/justinmraj1984/employee-onboarding-app`
 3. Install GitHub Desktop
 4. Install Java 11 and setup the JAVA_HOME environment variable in system parameters
-    - Download JDK 11 from `[https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip](https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip)`
+    - Download JDK 11 from `https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip`
     - On extracting this zip file `jdk-11` folder is available with the JDK installation.
     - In the windows system parameters, set `JAVA_HOME=<jdk-11 folder path>`
     - In path parameter, add `%JAVA_HOME%/bin`
@@ -101,8 +101,8 @@
 
 ## 5. Explore H2 Database console
 1. After the application has started successfully, open the below links in browser,
-    - Welcome Page - `[http://localhost:8080/welcome](http://localhost:8080/welcome)`
-    - H2 Database Console - `[http://localhost:8080/h2](http://localhost:8080/h2)`
+    - Welcome Page - `http://localhost:8080/welcome`
+    - H2 Database Console - `http://localhost:8080/h2`
 2. In the H2 Database Console, enter the following values as available in the `application.properties` file
     - Driver Class: `org.h2.Driver`
     - JDBC URL: `jdbc:h2:file:c:/mywork/h2-db-files/emp-app/empdb`
@@ -113,13 +113,13 @@
 
 ## 6. Explore REST APIs using Swagger UI
 1. After the application has started successfully, open the below links in browser,
-    - Swagger UI page - `[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)`
+    - Swagger UI page - `http://localhost:8080/swagger-ui.html`
 2. Inside the Swagger page, enter `/empapp-api-docs` and click ***Explore*** to view the REST API documentation
 3. Explore the APIs and check if the data in the table are getting updated accordingly.
-4. Explore the Open API specification JSON by accessing this URL - `[http://localhost:8080/empapp-api-docs](http://localhost:8080/empapp-api-docs)`.
+4. Explore the Open API specification JSON by accessing this URL - `http://localhost:8080/empapp-api-docs`.
 
 > **Note:** 
-> *Use a JSON formatter - `[https://jsonformatter.curiousconcept.com/](https://jsonformatter.curiousconcept.com/)` to understand the structure of the Open API specification document for API-First development*
+> *Use a JSON formatter - `https://jsonformatter.curiousconcept.com/` to understand the structure of the Open API specification document for API-First development*
 
 ### _Activities:_
 1. Switch to master branch and pull the latest code from Github repository.
