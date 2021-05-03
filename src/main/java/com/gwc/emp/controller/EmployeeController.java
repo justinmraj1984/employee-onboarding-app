@@ -25,6 +25,7 @@ public class EmployeeController
 	@Autowired
 	EmployeeServiceImpl employeeService;
 	
+	// Fetch all the active employees in the employee table
 	@GetMapping(value="/all")
 	public List <Employee> getAllEmployees()
 	{

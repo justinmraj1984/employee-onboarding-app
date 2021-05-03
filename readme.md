@@ -10,10 +10,10 @@
 
 ## 1. Pre-Requisites
 1. Create a GitHub account
-2. Verify access to the Employee application repository - `https://github.com/justinmraj1984/employee-onboarding-app`
+2. Verify access to the Employee application repository - `[https://github.com/justinmraj1984/employee-onboarding-app](https://github.com/justinmraj1984/employee-onboarding-app)`
 3. Install GitHub Desktop
 4. Install Java 11 and setup the JAVA_HOME environment variable in system parameters
-    - Download JDK 11 from `https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip`
+    - Download JDK 11 from `[https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip](https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip)`
     - On extracting this zip file `jdk-11` folder is available with the JDK installation.
     - In the windows system parameters, set `JAVA_HOME=<jdk-11 folder path>`
     - In path parameter, add `%JAVA_HOME%/bin`
@@ -78,7 +78,7 @@
 > **Note:** 
 > *After executing the above command, do not click or press any key in the command line till the application starts. If the application did not start for long time, then press Enter key to resume application starting.*
 > *If the application does not start and has error related to log statement then execute Step 7 below.*
-3. :new: Project Lombok setup in Eclipse IDE:
+3. Project Lombok setup in Eclipse IDE:
     - Once the application has started successfully, terminate it and close Eclipse IDE.
     - Goto the path - `C:\Users\<user-name>\.m2\repository\org\projectlombok\lombok\<version>`
     - Right click the file - `lombok-<version>.jar` and select ***Open***. This opens the Project Lombok installer window.
@@ -101,8 +101,8 @@
 
 ## 5. Explore H2 Database console
 1. After the application has started successfully, open the below links in browser,
-    - Welcome Page - `http://localhost:8080/welcome`
-    - H2 Database Console - `http://localhost:8080/h2`
+    - Welcome Page - `[http://localhost:8080/welcome](http://localhost:8080/welcome)`
+    - H2 Database Console - `[http://localhost:8080/h2](http://localhost:8080/h2)`
 2. In the H2 Database Console, enter the following values as available in the `application.properties` file
     - Driver Class: `org.h2.Driver`
     - JDBC URL: `jdbc:h2:file:c:/mywork/h2-db-files/emp-app/empdb`
@@ -111,13 +111,19 @@
 3. Click Connect to connect to the H2 database and open the console
 4. Once the H2 database is connected successfully, Explore the list of Tables and data in it.
 
-:new:
 ## 6. Explore REST APIs using Swagger UI
 1. After the application has started successfully, open the below links in browser,
-    - Swagger UI page - `http://localhost:8080/swagger-ui.html`
+    - Swagger UI page - `[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)`
 2. Inside the Swagger page, enter `/empapp-api-docs` and click ***Explore*** to view the REST API documentation
 3. Explore the APIs and check if the data in the table are getting updated accordingly.
+4. Explore the Open API specification JSON by accessing this URL - `[http://localhost:8080/empapp-api-docs](http://localhost:8080/empapp-api-docs)`.
 
 > **Note:** 
-> *The OpenAPI format for the REST API details are available in this URL - `http://localhost:8080/empapp-api-docs`*
+> *Use a JSON formatter - `[https://jsonformatter.curiousconcept.com/](https://jsonformatter.curiousconcept.com/)` to understand the structure of the Open API specification document for API-First development*
 
+### _Activities:_
+1. Switch to master branch and pull the latest code from Github repository.
+2. Create a new branch from master branch in the naming convention - `<group-id>_<user-name>-<date>`.
+3. Switch to this branch.
+4. Inside the application, go through each class file and add your understanding as comments.
+5. Check-in your comments periodically into your branch.
