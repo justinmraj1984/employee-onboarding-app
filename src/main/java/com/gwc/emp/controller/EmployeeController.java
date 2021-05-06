@@ -23,7 +23,7 @@ public class EmployeeController
 {
 	@Autowired
 	EmployeeServiceImpl employeeService;
-	
+	//get list of all employees
 	@GetMapping(value="/all")
 	public List <Employee> getAllEmployees()
 	{
@@ -31,15 +31,15 @@ public class EmployeeController
 
 		return employeeService.getAllEmployees();
 	}
-	
+	//get employee details by passing employee id
 	@GetMapping(value="/id/{employeeId}")
 	public Employee getEmployeeById(@PathVariable("employeeId") int employeeId)
 	{
 		log.info("Received request to getEmployeeById");
-
+		//find the employee by id and return it 
 		return employeeService.findById(employeeId);
 	}
-	
+	// creating new employee record or updating existing one from request
 	@PostMapping(value="/save")
 	public Employee createOrUpdate(@RequestBody Employee employee)
 	{
@@ -52,7 +52,7 @@ public class EmployeeController
 
 		return employee;
 	}
-	
+	//delete employee record by passing id 
 	@DeleteMapping(value="/delete/{employeeId}")
 	public void delete(@PathVariable("employeeId") int employeeId)
 	{

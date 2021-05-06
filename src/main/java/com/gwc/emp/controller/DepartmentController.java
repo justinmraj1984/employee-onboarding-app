@@ -1,5 +1,7 @@
 package com.gwc.emp.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ public class DepartmentController
 {
 	@Autowired
 	DepartmentServiceImpl departmentService;
-	
+	//get list of all the department details 
 	@GetMapping(value="/all")
 	public List <Department> getAllDepartments()
 	{
@@ -32,7 +34,7 @@ public class DepartmentController
 
 		return departmentService.getAllDepartments();
 	}
-	
+	//get the department details by passing dept id
 	@GetMapping(value="/id/{departmentId}")
 	public Department getDepartmentById(@PathVariable("departmentId") int departmentId)
 	{
@@ -40,7 +42,7 @@ public class DepartmentController
 
 		return departmentService.findById(departmentId);
 	}
-	
+	// creating new dept or updating existing one from request
 	@PostMapping(value="/save")
 	public Department createOrUpdate(@RequestBody Department department)
 	{
@@ -53,7 +55,7 @@ public class DepartmentController
 
 		return department;
 	}
-	
+	//delete dept by passing its id 
 	@DeleteMapping(value="/delete/{departmentId}")
 	public void delete(@PathVariable("departmentId") int departmentId)
 	{
@@ -63,14 +65,22 @@ public class DepartmentController
 		
 		log.info("Execution Status - Department deleted successfully");
 	}
-
+	//assign employee from employee list to dept based on dept id
 	@PostMapping(value="/assign/{departmentId}")
-	public void assign( @PathVariable("departmentId") int departmentId
-			          , @RequestBody AssignEmployeeRequest empList)
+	public void assign( @PathVariable("departmentId") int departmentId, @RequestBody AssignEmployeeRequest empList)
 	{
 		log.info("Received request to Assign employees to Department");
 
 		departmentService.assign(departmentId, empList);
+	}
+	@GetMapping(value="/hello")
+	public String hello(String name)
+	{
+		log.info("User message printed");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		LocalDateTime now = LocalDateTime.now();  
+		
+		return name+" accessed Swigger at "+dtf.format(now);
 	}
 
 }

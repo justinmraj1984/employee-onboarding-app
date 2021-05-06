@@ -18,7 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService
 {
 	@Autowired
 	private EmployeeRepository employeeRepository;
-
+	//creating new employee or updating existing employee
 	@Override
 	public Employee createOrUpdate(Employee employee)
 	{
@@ -26,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService
 
 		return employeeRepository.save(employee);
 	}
-	
+	//delete employee record by their id
 	@Override
 	public void delete(int employeeId)
 	{
@@ -39,13 +39,13 @@ public class EmployeeServiceImpl implements EmployeeService
 	public List<Employee> getAllEmployees()
 	{
 		log.info("Fetching all Employees");
-
+		//create a list of all the employees
 		List<Employee> employeeList = new ArrayList<Employee>();
 		employeeRepository.findAll()
 		                  .forEach(employee -> employeeList.add(employee));
 		return employeeList;
 	}
-	
+	//find the employee record by their id
 	@Override
 	public Employee findById (int employeeId)
 	{

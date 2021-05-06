@@ -24,7 +24,7 @@ public class ProjectController
 {
 	@Autowired
 	ProjectServiceImpl projectService;
-	
+	//get list of all the projects
 	@GetMapping(value="/all")
 	public List <Project> getAllProjects()
 	{
@@ -32,7 +32,7 @@ public class ProjectController
 
 		return projectService.getAllProjects();
 	}
-	
+	//get details of a project using its id
 	@GetMapping(value="/id/{projectId}")
 	public Project getProjectById(@PathVariable("projectId") int projectId)
 	{
@@ -40,7 +40,7 @@ public class ProjectController
 
 		return projectService.findById(projectId);
 	}
-	
+	//update or create a new project
 	@PostMapping(value="/save")
 	public Project createOrUpdate(@RequestBody Project project)
 	{
@@ -53,7 +53,7 @@ public class ProjectController
 
 		return project;
 	}
-	
+	//delete a project's record by passing its id
 	@DeleteMapping(value="/delete/{projectId}")
 	public void delete(@PathVariable("projectId") int projectId)
 	{
@@ -63,7 +63,7 @@ public class ProjectController
 		
 		log.info("Execution Status - Project deleted successfully");
 	}
-	
+	//assign a project by its id to a list of employees
 	@PostMapping(value="/assign/{projectId}")
 	public void assign( @PathVariable("projectId") int projectId
 			          , @RequestBody AssignEmployeeRequest empIdList)

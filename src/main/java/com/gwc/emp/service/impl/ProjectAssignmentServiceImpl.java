@@ -19,7 +19,7 @@ public class ProjectAssignmentServiceImpl implements ProjectAssignmentService
 {
 	@Autowired
 	private ProjectAssignmentRepository projectAssignmentRepository;
-
+	//create or update project assignments
 	@Override
 	public ProjectAssignment save(ProjectAssignment assignment)
 	{
@@ -27,7 +27,7 @@ public class ProjectAssignmentServiceImpl implements ProjectAssignmentService
 
 		return projectAssignmentRepository.save(assignment);
 	}
-		
+	//returns a list of all the project assignments	
 	@Override
 	public List<ProjectAssignment> getAllAssignments()
 	{
@@ -38,7 +38,7 @@ public class ProjectAssignmentServiceImpl implements ProjectAssignmentService
 		                 .forEach(projectAssignment -> projectAssignmentList.add(projectAssignment));
 		return projectAssignmentList;
 	}
-	
+	//returns the list of project assignments particular to that project from project id
 	@Override
 	public List <ProjectAssignment> findAssignmentsByProject (int projectId)
 	{

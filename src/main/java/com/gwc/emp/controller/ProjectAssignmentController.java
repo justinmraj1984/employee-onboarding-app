@@ -23,7 +23,7 @@ public class ProjectAssignmentController
 {
 	@Autowired
 	ProjectAssignmentServiceImpl projectAssignmentService;
-	
+	//get list of employees details assigned to every project
 	@GetMapping(value="/all")
 	public List <ProjectAssignment> getAllAssignments()
 	{
@@ -31,7 +31,7 @@ public class ProjectAssignmentController
 
 		return projectAssignmentService.getAllAssignments();
 	}
-
+	//find list of employees assigned to a particular project by id 
 	@GetMapping(value="/project/{projectId}")
 	public List <ProjectAssignment> getAssignmentsByProject(@PathVariable("projectId") int projectId)
 	{

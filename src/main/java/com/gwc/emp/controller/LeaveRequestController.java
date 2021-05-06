@@ -23,7 +23,7 @@ public class LeaveRequestController
 {
 	@Autowired
 	LeaveRequestServiceImpl leaveRequestService;
-	
+	//return a list of all the leave requests
 	@GetMapping(value="/all")
 	public List <LeaveRequest> getAllRequests()
 	{
@@ -31,7 +31,7 @@ public class LeaveRequestController
 
 		return leaveRequestService.getAllRequests();
 	}
-	
+	//retrieve a particular leave request by passing its request id 
 	@GetMapping(value="/{requestId}")
 	public LeaveRequest getRequestById(@PathVariable("requestId") int requestId)
 	{
@@ -39,7 +39,8 @@ public class LeaveRequestController
 
 		return leaveRequestService.findById(requestId);
 	}
-	
+	//get the list of leave requests from an employee with particular id
+	//passing the employee id 
 	@GetMapping(value="/emp/{employeeId}")
 	public List <LeaveRequest> getRequestByEmpId(@PathVariable("employeeId") int employeeId)
 	{
@@ -47,7 +48,8 @@ public class LeaveRequestController
 
 		return leaveRequestService.findByEmployeeId(employeeId);
 	}
-	
+	//create new leave request or update existing one
+	//using post method of crud repository
 	@PostMapping(value="/save")
 	public LeaveRequest createOrUpdate(@RequestBody LeaveRequest request)
 	{
@@ -60,7 +62,7 @@ public class LeaveRequestController
 
 		return request;
 	}
-	
+	//delete a leave request using its request id
 	@DeleteMapping(value="/delete/{requestId}")
 	public void delete(@PathVariable("requestId") int requestId)
 	{

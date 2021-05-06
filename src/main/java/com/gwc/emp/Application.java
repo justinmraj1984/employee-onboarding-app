@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
 	public static void main(String[] args) {
+		// bootstraps a spring application as a stand-alone application from the main method.
 		SpringApplication.run(Application.class, args);
 	}
 

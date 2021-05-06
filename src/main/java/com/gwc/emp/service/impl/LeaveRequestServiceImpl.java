@@ -18,7 +18,7 @@ public class LeaveRequestServiceImpl implements LeaveRequestService
 {
 	@Autowired
 	private LeaveRequestRepository leaveRequestRepository;
-
+	//create new leave request
 	@Override
 	public LeaveRequest createOrUpdate(LeaveRequest leaveRequest)
 	{
@@ -26,7 +26,7 @@ public class LeaveRequestServiceImpl implements LeaveRequestService
 
 		return leaveRequestRepository.save(leaveRequest);
 	}
-	
+	//delete a particular leave request by its id
 	@Override
 	public void delete(int requestId)
 	{
@@ -39,13 +39,13 @@ public class LeaveRequestServiceImpl implements LeaveRequestService
 	public List<LeaveRequest> getAllRequests()
 	{
 		log.info("Fetching all LeaveRequests");
-
+		// create a list of all the leave requests
 		List<LeaveRequest> requestList = new ArrayList<LeaveRequest>();
 		leaveRequestRepository.findAll()
 		                      .forEach(request -> requestList.add(request));
 		return requestList;
 	}
-	
+	//find the particular request by its id
 	@Override
 	public LeaveRequest findById (int requestId)
 	{
@@ -53,7 +53,7 @@ public class LeaveRequestServiceImpl implements LeaveRequestService
 
 		return leaveRequestRepository.findById(requestId).get();
 	}
-	
+	//return the list of leave requests of a particular employee by passing id
 	@Override
 	public List <LeaveRequest> findByEmployeeId (int employeeId)
 	{

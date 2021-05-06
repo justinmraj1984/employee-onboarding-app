@@ -28,7 +28,7 @@ public class ProjectServiceImpl implements ProjectService
 	private ProjectAssignmentServiceImpl projectAssignmentService;
 	@Autowired
 	private EmployeeServiceImpl employeeService;
-
+	//create or update a project 
 	@Override
 	public Project createOrUpdate(Project project)
 	{
@@ -36,7 +36,7 @@ public class ProjectServiceImpl implements ProjectService
 
 		return projectRepository.save(project);
 	}
-	
+	//delete a project by its id
 	@Override
 	public void delete(int projectId)
 	{
@@ -44,7 +44,7 @@ public class ProjectServiceImpl implements ProjectService
 
 		projectRepository.deleteById(projectId);
 	}
-	
+	//returns a list of all the projects
 	@Override
 	public List<Project> getAllProjects()
 	{
@@ -55,7 +55,7 @@ public class ProjectServiceImpl implements ProjectService
 		                 .forEach(project -> projectList.add(project));
 		return projectList;
 	}
-	
+	//returns the details of a project from its project id
 	@Override
 	public Project findById (int projectId)
 	{
@@ -73,7 +73,7 @@ public class ProjectServiceImpl implements ProjectService
 		Employee employee = new Employee();
 		ProjectAssignment newAssignment = new ProjectAssignment();
 		Date currentDate = new Date(System.currentTimeMillis());
-
+		// adding all the employees in the employee list passed to project 
 		for (int i=0; i < empList.getEmpIdList().size(); i++)
 		{
 			int empId = empList.getEmpIdList().get(i);
