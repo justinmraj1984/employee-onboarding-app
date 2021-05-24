@@ -33,7 +33,7 @@ public class EmployeeController
 
 		return employeeService.getAllEmployees();
 	}
-	
+	//Fetch the id in the employee table
 	@GetMapping(value="/id/{employeeId}")
 	public Employee getEmployeeById(@PathVariable("employeeId") int employeeId)
 	{
@@ -41,7 +41,7 @@ public class EmployeeController
 
 		return employeeService.findById(employeeId);
 	}
-	
+	//save all the details in the employee table
 	@PostMapping(value="/save")
 	public Employee createOrUpdate(@RequestBody Employee employee)
 	{
@@ -64,7 +64,7 @@ public class EmployeeController
 //		
 //		log.info("Execution Status - Employee deleted successfully");
 //	}
-	
+	//for delete the values in the employee table
 	@PostMapping(value="/delete")
 	public DeleteResponse delete(@RequestBody DeleteRequest request)
 	{
